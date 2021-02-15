@@ -155,3 +155,15 @@ function run() {
     console.log(scores);
     console.log("Average " + sum / n);
 }
+
+
+
+
+
+
+https://jsfiddle.net/bkanber/DHU7J/
+
+
+
+
+https://github.com/bkanber/MLinJS/tree/master/sentiment-analysis

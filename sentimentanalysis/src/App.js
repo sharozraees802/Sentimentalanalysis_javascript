@@ -20,7 +20,7 @@ function App() {
     } else {
       setGenealsentiment("Neutral");
     }
-    console.log(result);
+    //console.log(result);
   };
 
   return (
@@ -30,6 +30,8 @@ function App() {
       <textarea
         type="text"
         value={sentimenttext}
+        rows="25"
+        cols="90"
         onChange={(e) => setSentimenttext(e.target.value)}
       />
       <button
@@ -53,6 +55,9 @@ function App() {
       <p style={{ fontFamily: "cursive" }}>
         General Sentiment: {genealsentiment}
       </p>
+      <a href="https://jsfiddle.net/bkanber/DHU7J/">
+        Click this a sentimental analysis algo
+      </a>
     </div>
   );
 }
