@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sentiment Analyzer</title>
+    <link rel="stylesheet" href="css/sentiment.css" />
+    <script src="js/negative.js"></script>
+    <script src="js/positive.js"></script>
+    <script src="js/bayes.js"></script>
+    <script src="js/PorterStemmer1980.min.js"></script>
+    <script src="js/sentiment.js"></script>
+  </head>
+
+  <body>
+    <p>Training progress: <span id="trainingProgressValue">0</span>%</p>
+    <div class="progress-wrapper">
+      <div class="progress" id="trainingProgressBar"></div>
+    </div>
+
+    <p>Test results: <span id="testResultsValue">0</span>% accuracy</p>
+    <div class="progress-wrapper">
+      <div class="progress" id="testResultsBar"></div>
+    </div>
+
+    <p>Test your own:</p>
+    <textarea
+      id="testBox"
+      placeholder="eg: The director is a master at manupulating your emotions, making you laugh and cry."
+    ></textarea>
+    <button id="testButton">Guess Sentiment</button>
+    <p id="testResult" style="display: none">
+      Guess: <span id="testResultLabel"></span> (<span
+        id="testResultProbability"
+      ></span
+      >% probability)
+    </p>
+  </body>
+
+  <script src="js/sentiment.js"></script>
+</html>

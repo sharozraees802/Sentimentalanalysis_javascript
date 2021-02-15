@@ -13,7 +13,7 @@ var negations = new RegExp(
 );
 
 // Use 85% of our data set for training, the remaining 15% will be used for testing.
-var length = negations.length;
+var length = negatives.length;
 var split = Math.floor(0.85 * length);
 
 // Don't spit out console.log stuff during training and guessing.
@@ -57,7 +57,7 @@ function go() {
   Bayes.storage._data = {};
 
   // Shuffle our arrays. I'm sure some really astute CS genius will find a flaw with this ;)
-  negations.sort(function () {
+  negatives.sort(function () {
     return Math.random() - 0.5;
   });
   positives.sort(function () {
@@ -69,7 +69,7 @@ function go() {
   // And retooling to use animation frames is more annoying than it's worth.
 
   for (var i = 0; i < split; i++) {
-    Bayes.train(negations[i], "negative");
+    Bayes.train(negatives[i], "negative");
     Bayes.train(positives[i], "positive");
     if (i % 500 === 0) {
       // Next three lines are largely useless.
@@ -88,7 +88,7 @@ function go() {
 
   // Now we guess. Look at the remainder of the data set and test each of those.
   for (var i = split; i < length; i++) {
-    var negResult = Bayes.extractWinner(Bayes.guess(negations[i]));
+    var negResult = Bayes.extractWinner(Bayes.guess(negatives[i]));
     var posResult = Bayes.extractWinner(Bayes.guess(positives[i]));
 
     // Probability less than 75%? Skip it. No sense in making guesses that we know are uncertain.
@@ -96,7 +96,7 @@ function go() {
     else if (negResult.label === "negative") correct++;
     else {
       incorrect++;
-      incorrectNegs.push(negations[i]);
+      incorrectNegs.push(negatives[i]);
     }
 
     // Repeat for the corresponding positive data point.
@@ -142,5 +142,3 @@ function run() {
   console.log(scores);
   console.log("Average " + sum / n);
 }
-
-console.log("helloworld");
