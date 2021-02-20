@@ -17,7 +17,16 @@ let mydocx = [
   "this book is the bad condition",
 ];
 
-mydocx.forEach((s) => {
-  //   console.log(sentiment.analyze(s));
-  console.log(sentiment.analyze(s).score);
-});
+let r = sentiment.analyze(...mydocx).score;
+if (r < 0) {
+  console.log("Negative 😡😠");
+} else if (r > 0) {
+  console.log("Positive 😍");
+} else {
+  console.log("Newtral 😐");
+}
+
+// mydocx.forEach((s) => {
+//   //   console.log(sentiment.analyze(s));
+//   console.log(sentiment.analyze(s).score);
+// });
